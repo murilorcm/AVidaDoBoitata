@@ -1,4 +1,4 @@
-package br.com.murilorcm.avidadoboitata.snake
+package br.com.murilorcm.avidadoboitata.game.snake
 
 class Bodypart(x: Int, y: Int, boardSize: Int) {
     var x: Int = 0

@@ -1,4 +1,4 @@
-package br.com.murilorcm.avidadoboitata
+package br.com.murilorcm.avidadoboitata.game
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input

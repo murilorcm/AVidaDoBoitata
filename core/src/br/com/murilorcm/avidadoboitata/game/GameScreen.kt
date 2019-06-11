@@ -1,17 +1,16 @@
-package br.com.murilorcm.avidadoboitata
+package br.com.murilorcm.avidadoboitata.game
 
-import com.badlogic.gdx.Gdx
+import br.com.murilorcm.avidadoboitata.Main
 import com.badlogic.gdx.Screen
-import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.utils.viewport.FitViewport
 
-class GameScreen(private val game: Main) : Screen {
+class GameScreen(game: Main) : Screen {
 
-    private val gameState = GameState()
+    private val gameState = GameState(game)
 
     private val width = 600f
-    private val height = 1000f
+    private val height = 600f
 
     private val camera = OrthographicCamera(width, height)
     private var viewport: FitViewport
@@ -34,8 +33,6 @@ class GameScreen(private val game: Main) : Screen {
 
         gameState.update(delta, viewport)
 
-        Gdx.gl.glClearColor(0f, 0f, 0f, 1f)
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
         gameState.draw(width, height, camera)
     }
 

@@ -1,4 +1,4 @@
-package br.com.murilorcm.avidadoboitata.food
+package br.com.murilorcm.avidadoboitata.game.food
 
 import com.badlogic.gdx.math.MathUtils
 
@@ -16,5 +16,9 @@ class Food(boardSize: Int) {
     internal fun randomisePos(boardSize: Int) {
         x = MathUtils.random(boardSize - 1)
         y = MathUtils.random(boardSize - 1)
+    }
+
+    internal fun randomiseFood() : Int {
+        return MathUtils.random(0, 4)
     }
 }
