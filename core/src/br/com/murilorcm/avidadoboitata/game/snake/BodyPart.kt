@@ -1,6 +1,6 @@
 package br.com.murilorcm.avidadoboitata.game.snake
 
-class Bodypart(x: Int, y: Int, boardSize: Int) {
+class Bodypart(x: Int, y: Int, boardSize: Int, internal val direction: Int, internal var nextBp : Bodypart?) {
     var x: Int = 0
         private set
     var y: Int = 0

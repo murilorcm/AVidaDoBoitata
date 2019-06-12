@@ -1,4 +1,4 @@
-package br.com.murilorcm.avidadoboitata.menu
+package br.com.murilorcm.avidadoboitata.over
 
 import br.com.murilorcm.avidadoboitata.Main
 import br.com.murilorcm.avidadoboitata.game.GameScreen
@@ -9,18 +9,18 @@ import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.graphics.Texture
 
-class MenuScreen(private val game: Main) : Screen {
+class GameOverScreen(private val game: Main, private val score: Int) : Screen {
     private val width = 1500f
     private val height = 1500f
 
     private val camera = OrthographicCamera(width, height)
     private val icon = Texture(Gdx.files.internal("snake.png"))
 
-    private val music =  Gdx.audio.newSound(Gdx.files.internal("Sons/Field1.ogg"))
+    private val music =  Gdx.audio.newSound(Gdx.files.internal("Sons/Field4.ogg"))
 
     init {
-        camera.setToOrtho(false, width, height)
         music.loop()
+        camera.setToOrtho(false, width, height)
     }
 
     override fun hide() {
@@ -38,8 +38,9 @@ class MenuScreen(private val game: Main) : Screen {
 
         game.batch.begin()
         game.batch.draw(icon, 900f, 200f, 400f, 400f)
-        game.font.draw(game.batch, "Bem-Vindo à Vida do Boitatá", 600f, 1050f)
-        game.font.draw(game.batch, "Pressione qualquer tecla para começar!", 600f, 950f)
+        game.font.draw(game.batch, "Fim de Jogo", 600f, 1050f)
+        game.font.draw(game.batch, "Pontuação: $score", 600f, 950f)
+        game.font.draw(game.batch, "Pressione qualquer tecla para recomeçar!", 600f, 850f)
 
         game.batch.end()
 
@@ -63,5 +64,4 @@ class MenuScreen(private val game: Main) : Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
         music.dispose()
     }
-
 }
